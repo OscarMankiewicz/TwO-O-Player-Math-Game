@@ -1,0 +1,94 @@
+DESCRIPTION
+Create a 2-Player math game where players take turns to answer simple math addition problems. 
+A new math question is generated for each turn by picking two numbers between 1 and 20. 
+The player whose turn it is is prompted the question and must answer correctly or lose a life.
+
+DETAILS
+Both players start with 3 lives. They lose a life if they mis-answer a question. 
+At the end of every turn, the game should output the new scores for both players, so players know where they stand.
+The game doesn’t end until one of the players loses all their lives. 
+At this point, the game should announce who won and what the other player’s score is.
+
+
+EXAMPLE
+player 1: What does 5 plus 3 equal?
+> 9
+Player 1: Seriously? NO!
+P1: 2/3 vs P2: 3/3
+----- NEW TURN -----
+Player 2: What does 2 plus 6 equal?
+> 8
+Player 2: YES! you are correct.
+P1: 2/3 vs P2 3/3
+----- NEW TURN -----
+... some time later ...
+Player 1 wins with a score of 1/3
+----- GAME OVER -----
+Goodbye!
+
+
+Task 1: Extract Nouns for Classes
+1. Game
+2. Player
+3. MathQuestion
+
+Task 2: Write their roles
+
+1. Game:
+    ROLE: The game class will hold the overall logic of the math game. 
+    It will manage the flow of the game, Keep track of players' lives, generate math questions and determine a winner.
+
+    RELEVANT INFO: Players, current question, player lives
+
+    INITIALIZATION: The game class will need to be initialized with the numbers of players
+
+    PUBLIC METHODS:
+        start_game(): Starts the gmae and initiates the game loop.
+
+        generate_question(): Generates a math question with two random numbers between 1 and 50.
+
+        check_answer(player, answer): Checks if the player’s answer is correct or incorrect and reduces their life accordingly.
+
+        get_score(): Returns the current score of both players.
+
+        announce_winner(): Announces the winner of the game and the other player's score.
+
+2. Player:
+    ROLE:The Player class will represent each player in the game. It will store the lives.
+
+    RELEVANT INFO: player's lives.
+
+    INITIALIZATION: The Player class will need to be initialized with an ID or name.
+
+    PUBLIC METHODS:
+        get_lives(): Returns the current number of lives of the player.
+
+        reduce_life(): Reduces the player's life by 1.
+
+3. MathQuestion:
+    ROLE: The MathQuestion class will represent each math question in the game. It will generate random addition problems with two numbers between 1 and 50.
+
+    RELEVANT INFO: Two random numbers for the addition problem.
+
+    INITIALIZATION: The MathQuestion class does not require any initialization.
+
+    PUBLIC METHODS:
+        generate_question(): Generates a new math question with two random numbers between 1 and 50.
+
+        check_answer(answer): Checks if the provided answer is correct for the math question.
+
+CLASS RESPONSIBILITES SUMMARY:
+Game: Manages the overall game flow, lives, and determines the winner.
+
+Player: Represents each player in the game and stores their lives.
+
+MathQuestion: Generates random addition problems and checks if the answer is correct.
+
+FURTHER DETAILS:
+The Game class will contain the game loop, where each iteration represents a turn of the players.
+
+The Game class will manage the current_player and switch turns between players.
+
+The Player class will not have any user I/O and will only store player-specific data.
+
+The Game class will handle user I/O and display relevant information to the players.
